@@ -115,6 +115,8 @@ final class PledgeViewController: UIViewController,
   private lazy var rootStackView: UIStackView = {
     UIStackView(frame: .zero)
       |> \.translatesAutoresizingMaskIntoConstraints .~ false
+      |> \.distribution .~ .equalCentering
+      |> \.alignment .~ .top
   }()
 
   private var sessionStartedObserver: Any?
@@ -195,6 +197,10 @@ final class PledgeViewController: UIViewController,
 
     arrangedSubviews.forEach { view in
       self.rootStackView.addArrangedSubview(view)
+      NSLayoutConstraint.activate([
+        view.leftAnchor.constraint(equalTo: self.rootStackView.leftAnchor),
+        view.rightAnchor.constraint(equalTo: self.rootStackView.rightAnchor)
+      ])
     }
 
     _ = (self.paymentMethodsViewController.view, self.rootStackView)
