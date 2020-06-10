@@ -2,7 +2,18 @@ import Foundation
 import Library
 import Optimizely
 
-extension OptimizelyClient: OptimizelyClientType {}
+extension OptimizelyClient: OptimizelyClientType {
+
+  public func track(eventName: String) {
+    let userAttributes = optimizelyUserAttributes()
+    let userId = deviceIdentifier(uuid: UUID())
+
+    try? track(eventKey: eventName,
+               userId: userId,
+               attributes: userAttributes,
+               eventTags: nil)
+  }
+}
 
 extension OptimizelyResult: OptimizelyResultType {
   public var hasError: Error? {

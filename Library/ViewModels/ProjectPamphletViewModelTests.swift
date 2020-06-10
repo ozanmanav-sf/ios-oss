@@ -932,11 +932,6 @@ final class ProjectPamphletViewModelTests: TestCase {
       )
       XCTAssertEqual(self.optimizelyClient.trackedAttributes?["session_apple_pay_device"] as? Bool, true)
       XCTAssertEqual(self.optimizelyClient.trackedAttributes?["session_device_format"] as? String, "phone")
-
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_subcategory"] as? String, "Art")
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_category"] as? String, nil)
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_country"] as? String, "us")
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_user_has_watched"] as? Bool, nil)
     }
   }
   
@@ -973,11 +968,6 @@ final class ProjectPamphletViewModelTests: TestCase {
       )
       XCTAssertEqual(self.optimizelyClient.trackedAttributes?["session_apple_pay_device"] as? Bool, true)
       XCTAssertEqual(self.optimizelyClient.trackedAttributes?["session_device_format"] as? String, "phone")
-
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_subcategory"] as? String, "Art")
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_category"] as? String, nil)
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_country"] as? String, "us")
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_user_has_watched"] as? Bool, nil)
     }
   }
 
@@ -988,14 +978,12 @@ final class ProjectPamphletViewModelTests: TestCase {
     XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
     XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
     XCTAssertNil(self.optimizelyClient.trackedAttributes)
-    XCTAssertNil(self.optimizelyClient.trackedEventTags)
 
     self.vm.inputs.pledgeCTAButtonTapped(with: .manage)
 
     XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
     XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
     XCTAssertNil(self.optimizelyClient.trackedAttributes)
-    XCTAssertNil(self.optimizelyClient.trackedEventTags)
 
     // Only track for non-backed, pledge state
     self.vm.inputs.pledgeCTAButtonTapped(with: .pledge)
@@ -1025,11 +1013,6 @@ final class ProjectPamphletViewModelTests: TestCase {
     )
     XCTAssertEqual(self.optimizelyClient.trackedAttributes?["session_apple_pay_device"] as? Bool, true)
     XCTAssertEqual(self.optimizelyClient.trackedAttributes?["session_device_format"] as? String, "phone")
-
-    XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_subcategory"] as? String, "Art")
-    XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_category"] as? String, nil)
-    XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_country"] as? String, "us")
-    XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_user_has_watched"] as? String, nil)
   }
 
   func testOptimizelyTrackingPledgeCTAButtonTapped_LoggedOut_Backed() {
@@ -1050,14 +1033,12 @@ final class ProjectPamphletViewModelTests: TestCase {
     XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
     XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
     XCTAssertNil(self.optimizelyClient.trackedAttributes)
-    XCTAssertNil(self.optimizelyClient.trackedEventTags)
 
     self.vm.inputs.pledgeCTAButtonTapped(with: .manage)
 
     XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
     XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
     XCTAssertNil(self.optimizelyClient.trackedAttributes)
-    XCTAssertNil(self.optimizelyClient.trackedEventTags)
 
     // Only track for non-backed, pledge state
     self.vm.inputs.pledgeCTAButtonTapped(with: .manage)
@@ -1066,7 +1047,6 @@ final class ProjectPamphletViewModelTests: TestCase {
     XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
     XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
     XCTAssertNil(self.optimizelyClient.trackedAttributes)
-    XCTAssertNil(self.optimizelyClient.trackedEventTags)
   }
   
   func testOptimizelyTrackingPledgeCTAButtonTapped_SeeTheRewards() {
@@ -1107,14 +1087,14 @@ final class ProjectPamphletViewModelTests: TestCase {
       XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
       XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
       XCTAssertNil(self.optimizelyClient.trackedAttributes)
-      XCTAssertNil(self.optimizelyClient.trackedEventTags)
+
 
       self.vm.inputs.pledgeCTAButtonTapped(with: .manage)
 
       XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
       XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
       XCTAssertNil(self.optimizelyClient.trackedAttributes)
-      XCTAssertNil(self.optimizelyClient.trackedEventTags)
+
 
       // Only track for non-backed, pledge state
       self.vm.inputs.pledgeCTAButtonTapped(with: .pledge)
@@ -1144,11 +1124,6 @@ final class ProjectPamphletViewModelTests: TestCase {
       )
       XCTAssertEqual(self.optimizelyClient.trackedAttributes?["session_apple_pay_device"] as? Bool, true)
       XCTAssertEqual(self.optimizelyClient.trackedAttributes?["session_device_format"] as? String, "phone")
-
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_subcategory"] as? String, "Art")
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_category"] as? String, nil)
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_country"] as? String, "us")
-      XCTAssertEqual(self.optimizelyClient.trackedEventTags?["project_user_has_watched"] as? Bool, nil)
     }
   }
 
@@ -1175,14 +1150,14 @@ final class ProjectPamphletViewModelTests: TestCase {
       XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
       XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
       XCTAssertNil(self.optimizelyClient.trackedAttributes)
-      XCTAssertNil(self.optimizelyClient.trackedEventTags)
+
 
       self.vm.inputs.pledgeCTAButtonTapped(with: .manage)
 
       XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
       XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
       XCTAssertNil(self.optimizelyClient.trackedAttributes)
-      XCTAssertNil(self.optimizelyClient.trackedEventTags)
+
 
       // Only track for non-backed, pledge state
       self.vm.inputs.pledgeCTAButtonTapped(with: .manage)
@@ -1191,7 +1166,7 @@ final class ProjectPamphletViewModelTests: TestCase {
       XCTAssertEqual(self.optimizelyClient.trackedUserId, nil)
       XCTAssertEqual(self.optimizelyClient.trackedEventKey, nil)
       XCTAssertNil(self.optimizelyClient.trackedAttributes)
-      XCTAssertNil(self.optimizelyClient.trackedEventTags)
+
     }
   }
 
